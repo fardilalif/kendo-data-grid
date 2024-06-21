@@ -1,0 +1,64 @@
+<div *ngIf="data()" class="flex items-center justify-center">
+  <div class="md:min-w-[60%] h-[400px] overflow-auto" [style]="style()">
+    <table
+      class="border-l border-r border-b border-separate border-spacing-0 text-sm bg-white"
+    >
+      <thead class="sticky top-0 bg-gray-50">
+        <tr>
+          <th
+            *ngIf="expandField()"
+            class="py-2 px-4 border-b border-t border-r"
+          ></th>
+
+          @for (column of columns(); track column) {
+          <th
+            class="font-normal text-left py-2 px-4 border-b border-t border-r"
+          >
+            {{ column.title }}
+          </th>
+          }
+        </tr>
+      </thead>
+      <tbody class="">
+        <ng-container *ngFor="let item of data(); let i = index">
+          <tr
+            [ngClass]="{
+              'bg-white': i % 2 === 0,
+              'bg-gray-100': i % 2 !== 0
+            }"
+          >
+            <td
+              *ngIf="expandField()"
+              (click)="toggleDetail(item)"
+              class="py-2 px-4 border-b text-lg font-semibold cursor-pointer border-r"
+            >
+              {{ item.expanded ? "-" : "+" }}
+            </td>
+
+            @for (column of columns(); track column) {
+            <td class="py-2 px-4 border-b border-r">
+              {{ item[column.field] }}
+            </td>
+
+            }
+          </tr>
+          <tr
+            *ngIf="item.expanded"
+            [ngClass]="{
+              'bg-white': i % 2 === 0,
+              'bg-gray-100': i % 2 !== 0
+            }"
+          >
+            <td></td>
+            <td [attr.colspan]="columns().length" class="py-2 px-4 border-b">
+              <ng-template
+                [ngTemplateOutlet]="templateRef"
+                [ngTemplateOutletContext]="{ $implicit: item }"
+              ></ng-template>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>

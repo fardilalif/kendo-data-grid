@@ -1,0 +1,11 @@
+<section>
+  <strong>In Stock:</strong>
+  {{ product().UnitsInStock }} units<br />
+  <strong>On Order:</strong>
+  {{ product().UnitsOnOrder }} units<br />
+  <strong>Reorder Level:</strong>
+  {{ product().ReorderLevel }} units<br />
+  <strong>Discontinued:</strong> {{ product().Discontinued }}<br />
+  <strong>Category:</strong> {{ product().Category.CategoryName }} -
+  {{ product().Category.Description }}
+</section>
