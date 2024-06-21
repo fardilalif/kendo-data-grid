@@ -8,7 +8,7 @@ Implement KendoReact Data Grid using Angular and Tailwind CSS.
 
 - [Installation Requirements](#installation-requirements)
 - [Installation](#installation)
-- [Result](#how-to-start)
+- [Demo & Result](#demo-result)
 
 ## Installation Requirements
 
@@ -22,6 +22,6 @@ Implement KendoReact Data Grid using Angular and Tailwind CSS.
       npm i && ng serve
    ```
 
-## Result
+## Demo Result
 
-- [Result Link)
+- [Result Link](https://drive.google.com/drive/folders/1EKTLJoZSRtfeV3T7a3owKgseIM0fAsO9?usp=sharing)
